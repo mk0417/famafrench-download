@@ -1,6 +1,6 @@
 # Download Fama-French data
 
-A simple Python library for downloading Fama-French datasets from Ken French's Data Library.
+A simple Python library for downloading Fama-French datasets (including historical archives) from Ken French's Data Library.
 
 ## Installation
 
@@ -12,19 +12,19 @@ pip install git+https://github.com/mk0417/famafrench-download.git
 
 ## Usage
 
-### 1. List Available Datasets
+### List Available Datasets
 
 To view all available dataset names from Ken French's Data Library:
 
 ```python
 import famafrench_download as ffd
 
-# List dataset identifiers
+# List available datasets
 datasets = ffd.list_datasets()
 print(datasets[:5])
 ```
 
-### 2. List Historical Archives
+### List Historical Archives
 
 To view available historical archive dataset names for 3-factor (`ff3`) or 5-factor (`ff5`) models:
 
@@ -38,9 +38,9 @@ archives_ff5 = ffd.list_archives('ff5')
 print(archives_ff5)
 ```
 
-### 3. Download Datasets
+### Download Datasets
 
-Use `port_dl` with a dataset name to download, and return a dictionary of Polars DataFrames keyed by data frequency (e.g., `Monthly`, `Annual`, `Daily`):
+Use `port_dl` with a dataset name to download, and return a dictionary of Polars DataFrames keyed by data frequency (e.g., `Monthly`, `Annual`, `Daily`) or portfolio specifications:
 
 ```python
 # Download Fama-French 3 Factors dataset
@@ -51,4 +51,7 @@ data['Monthly']
 
 data['Annual']
 ```
+
+### Reference
+`pandas-datareader`: https://github.com/pydata/pandas-datareader
 
