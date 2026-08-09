@@ -66,7 +66,7 @@ def _extract_sections(fname):
                 url = f'{base_url_archive}/F-F_Research_Data_5_Factors_2x3_CSV.zip'
                 raw = _read_zipfile(url)
     else:
-        url = f'{base_url}/ftp/{fname}_TXT.zip'
+        url = f'{base_url}/ftp/{fname}_CSV.zip'
         raw = _read_zipfile(url)
 
     if 'TXT.zip' in url:
