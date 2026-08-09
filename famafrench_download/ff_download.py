@@ -31,6 +31,9 @@ def list_archives(factor_model):
     datasets = [
         f'archive {factor_model} {re.search(r'\d\d \d\d\d\d', i)[0]}'
         for i in source.xpath(search_pattern)]
+    # Remove duplicates
+    datasets = sorted(
+        list(set(datasets)), key=lambda x: x.split()[-1], reverse=True)
     return datasets
 
 def _read_zipfile(file_url):
@@ -114,3 +117,4 @@ def port_dl(fname):
         data[info] = pl.from_pandas(df)
 
     return data
+
